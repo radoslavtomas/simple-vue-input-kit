@@ -1,6 +1,6 @@
 {
   "name": "simple-vue-input-kit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Collection of custom Vue inputs",
   "author": "Radoslav Tomas",
@@ -9,7 +9,6 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "bili",
-    "prepublish": "npm run build",
     "lint": "vue-cli-service lint"
   },
   "repository": {
