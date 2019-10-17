@@ -1,0 +1,49 @@
+{
+  "name": "simple-vue-input-kit",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Collection of custom Vue inputs",
+  "author": "Radoslav Tomas",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "bili",
+    "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/radoslavtomas/simple-vue-input-kit"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "keywords": [
+    "vue",
+    "inputs",
+    "kit"
+  ],
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/vue-fontawesome": "^0.1.7",
+    "core-js": "^2.6.5",
+    "lodash-es": "^4.17.15",
+    "valform": "^1.2.1",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "babel-eslint": "^10.0.1",
+    "bili": "^4.8.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "prettier": "^1.18.2",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
