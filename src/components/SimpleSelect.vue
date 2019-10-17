@@ -18,13 +18,16 @@
           :class="`help__btn__${name}`"
           @click.prevent="openHelp"
         >
-          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon
+          >Need help?
         </sup>
       </label>
 
       <div class="simple__input__inner">
         <div class="inner__left">
-          <div class="simple__input__before" v-if="beforeSign">{{ beforeSign }}</div>
+          <div class="simple__input__before" v-if="beforeSign">
+            {{ beforeSign }}
+          </div>
           <select
             :ref="name"
             :class="classList"
@@ -42,13 +45,22 @@
               v-for="option in options"
               :key="option.code"
               :value="option.code"
-            >{{ option.description }}</option>
+              >{{ option.description }}</option
+            >
           </select>
         </div>
 
         <div class="simple__input__feedback">
-          <fa-icon v-if="inputValid" class="simple__input__feedback__valid" icon="check"></fa-icon>
-          <fa-icon v-if="inputError" class="simple__input__feedback__error" icon="times"></fa-icon>
+          <fa-icon
+            v-if="inputValid"
+            class="simple__input__feedback__valid"
+            icon="check"
+          ></fa-icon>
+          <fa-icon
+            v-if="inputError"
+            class="simple__input__feedback__error"
+            icon="times"
+          ></fa-icon>
         </div>
       </div>
     </div>
@@ -58,14 +70,15 @@
       :class="`help__btn__${name}`"
       @click="openHelp"
     >
-      <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+      <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need
+      help?
     </div>
   </div>
 </template>
 
 <script>
-  import apiMixin from "./../mixins/apiMixin";
-  import baseMixin from "./../mixins/baseMixin";
+import apiMixin from "./../mixins/apiMixin";
+import baseMixin from "./../mixins/baseMixin";
 
 export default {
   name: "simple-select",
@@ -79,7 +92,7 @@ export default {
     searchUrl: {
       // url used to fetch options after user typed something
       type: String,
-      default: '/get-list/'
+      default: "/get-list/"
     },
     beforeSign: {
       // if provided it will be rendered on the input's left side
@@ -92,7 +105,7 @@ export default {
   },
   data() {
     return {
-      options: [],
+      options: []
     };
   },
   methods: {
@@ -156,6 +169,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/*@import "./../assets/qld.css";*/
-</style>
+<style scoped></style>

@@ -18,19 +18,30 @@
           :class="`help__btn__${name}`"
           @click.prevent="openHelp"
         >
-          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon
+          >Need help?
         </sup>
       </label>
 
       <div class="simple__input__inner">
-        <div class="inner__left inner__radio" :class="[{ 'column':column }, classList]">
+        <div
+          class="inner__left inner__radio"
+          :class="[{ column: column }, classList]"
+        >
           <div
             class="simple__input__radio"
             v-for="option in options"
-            :class="{ 'active':(option.code === value), 'valid':inputValid, 'error':inputError, 'column':column }"
+            :class="{
+              active: option.code === value,
+              valid: inputValid,
+              error: inputError,
+              column: column
+            }"
             :key="option.code"
             @click="chooseOption(option)"
-          >{{ option.description }}</div>
+          >
+            {{ option.description }}
+          </div>
 
           <input
             type="hidden"
@@ -46,8 +57,16 @@
         </div>
 
         <div class="simple__input__feedback">
-          <fa-icon v-if="inputValid" class="simple__input__feedback__valid" icon="check"></fa-icon>
-          <fa-icon v-if="inputError" class="simple__input__feedback__error" icon="times"></fa-icon>
+          <fa-icon
+            v-if="inputValid"
+            class="simple__input__feedback__valid"
+            icon="check"
+          ></fa-icon>
+          <fa-icon
+            v-if="inputError"
+            class="simple__input__feedback__error"
+            icon="times"
+          ></fa-icon>
         </div>
       </div>
     </div>
@@ -57,7 +76,8 @@
       :class="`help__btn__${name}`"
       @click="openHelp"
     >
-      <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+      <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need
+      help?
     </div>
   </div>
 </template>
@@ -84,8 +104,8 @@ export default {
     searchUrl: {
       // url used to fetch options after user typed something
       type: String,
-      default: '/get-list/'
-    },
+      default: "/get-list/"
+    }
   },
   data() {
     return {
@@ -145,6 +165,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/*@import "./../assets/qld.css";*/
-</style>
+<style scoped></style>

@@ -2,7 +2,7 @@ import Vue from "vue";
 import valForm from "valform";
 import SimpleHelp from "./../components/SimpleHelp.vue";
 
-import './../assets/qld.css';
+import "./../assets/qld.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -19,13 +19,13 @@ Vue.component("fa-icon", FontAwesomeIcon);
 
 valForm.addValMethod("has_valid_value", field => {
   return document
-      .getElementsByName(field.name)[0]
-      .classList.contains("simple__selected");
+    .getElementsByName(field.name)[0]
+    .classList.contains("simple__selected");
 });
 
 valForm.addValMessage(
-    "has_valid_value",
-    "The %s field doesn't seem to have a valid value."
+  "has_valid_value",
+  "The %s field doesn't seem to have a valid value."
 );
 
 export default {

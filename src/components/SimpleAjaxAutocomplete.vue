@@ -18,13 +18,16 @@
           :class="`help__btn__${name}`"
           @click.prevent="openHelp"
         >
-          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon
+          >Need help?
         </sup>
       </label>
 
       <div class="simple__input__inner">
         <div class="inner__left">
-          <div class="simple__input__before" v-if="beforeSign">{{ beforeSign }}</div>
+          <div class="simple__input__before" v-if="beforeSign">
+            {{ beforeSign }}
+          </div>
           <input
             type="text"
             autocomplete="off"
@@ -48,7 +51,12 @@
           />
 
           <!-- spinner when calling API -->
-          <fa-icon v-if="searching" icon="spinner" class="simple__autocomplete__spinner" spin></fa-icon>
+          <fa-icon
+            v-if="searching"
+            icon="spinner"
+            class="simple__autocomplete__spinner"
+            spin
+          ></fa-icon>
 
           <!-- code value  -->
           <input type="hidden" :name="name" :value="codeValue" />
@@ -60,16 +68,26 @@
                 v-for="(option, index) in optionsToShow"
                 :key="option.code"
                 @click="setResult(option)"
-                :class="{ 'active': index === arrowCounter }"
-              >{{ option.description }}</li>
+                :class="{ active: index === arrowCounter }"
+              >
+                {{ option.description }}
+              </li>
             </ul>
           </div>
         </div>
 
         <!-- feedback icons -->
         <div class="simple__input__feedback">
-          <fa-icon v-if="inputValid" class="simple__input__feedback__valid" icon="check"></fa-icon>
-          <fa-icon v-if="inputError" class="simple__input__feedback__error" icon="times"></fa-icon>
+          <fa-icon
+            v-if="inputValid"
+            class="simple__input__feedback__valid"
+            icon="check"
+          ></fa-icon>
+          <fa-icon
+            v-if="inputError"
+            class="simple__input__feedback__error"
+            icon="times"
+          ></fa-icon>
         </div>
       </div>
       <!-- simple__input__inner end -->
@@ -83,7 +101,8 @@
       :class="`help__btn__${name}`"
       @click="openHelp"
     >
-      <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+      <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need
+      help?
     </div>
   </div>
 </template>
@@ -138,7 +157,7 @@ export default {
         this.optionsToShow = [];
       }
     },
-    searchForList: debounce(async function (value) {
+    searchForList: debounce(async function(value) {
       this.searching = true;
 
       let list = await this.fetchList(value);
@@ -181,6 +200,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/*@import "./../assets/qld.css";*/
-</style>
+<style scoped></style>

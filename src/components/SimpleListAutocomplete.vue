@@ -18,13 +18,16 @@
           :class="`help__btn__${name}`"
           @click.prevent="openHelp"
         >
-          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon
+          >Need help?
         </sup>
       </label>
 
       <div class="simple__input__inner">
         <div class="inner__left">
-          <div class="simple__input__before" v-if="beforeSign">{{ beforeSign }}</div>
+          <div class="simple__input__before" v-if="beforeSign">
+            {{ beforeSign }}
+          </div>
           <input
             type="text"
             autocomplete="off"
@@ -55,15 +58,25 @@
                 v-for="(option, index) in optionsToShow"
                 :key="option.code"
                 @click="setResult(option)"
-                :class="{ 'active': index === arrowCounter }"
-              >{{ option.description }}</li>
+                :class="{ active: index === arrowCounter }"
+              >
+                {{ option.description }}
+              </li>
             </ul>
           </div>
         </div>
 
         <div class="simple__input__feedback">
-          <fa-icon v-if="inputValid" class="simple__input__feedback__valid" icon="check"></fa-icon>
-          <fa-icon v-if="inputError" class="simple__input__feedback__error" icon="times"></fa-icon>
+          <fa-icon
+            v-if="inputValid"
+            class="simple__input__feedback__valid"
+            icon="check"
+          ></fa-icon>
+          <fa-icon
+            v-if="inputError"
+            class="simple__input__feedback__error"
+            icon="times"
+          ></fa-icon>
         </div>
       </div>
     </div>
@@ -73,7 +86,8 @@
       :class="`help__btn__${name}`"
       @click="openHelp"
     >
-      <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+      <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need
+      help?
     </div>
   </div>
 </template>
@@ -113,7 +127,7 @@ export default {
   },
   data() {
     return {
-      options: [],
+      options: []
     };
   },
   methods: {
@@ -160,11 +174,8 @@ export default {
     await this.setOptions();
     this.setClassObserver();
     this.loadDefaults();
-  },
-
+  }
 };
 </script>
 
-<style scoped>
-/*@import "./../assets/qld.css";*/
-</style>
+<style scoped></style>
