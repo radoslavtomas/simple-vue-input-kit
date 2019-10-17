@@ -2,7 +2,7 @@ import Vue from "vue";
 import valForm from "valform";
 import SimpleHelp from "./../components/SimpleHelp.vue";
 
-import "./../assets/qld.css";
+import "./../simple.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {

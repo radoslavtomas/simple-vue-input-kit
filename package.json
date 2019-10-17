@@ -8,7 +8,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "bili",
+    "build": "rollup --config",
     "prepublish": "npm run build",
     "lint": "vue-cli-service lint"
   },
@@ -30,21 +30,34 @@
     "@fortawesome/vue-fontawesome": "^0.1.7",
     "core-js": "^2.6.5",
     "lodash-es": "^4.17.15",
+    "style-inject": "^0.3.0",
+    "style-loader": "^1.0.0",
     "valform": "^1.2.1",
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/runtime": "^7.6.3",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "@vue/eslint-config-prettier": "^5.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
     "bili": "^4.8.1",
+    "css-loader": "^3.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.0.0",
     "prettier": "^1.18.2",
+    "rollup": "^1.24.0",
     "rollup-plugin-vue": "^5.0.1",
-    "vue-template-compiler": "^2.6.10"
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-node-externals": "^1.7.2"
   }
 }
