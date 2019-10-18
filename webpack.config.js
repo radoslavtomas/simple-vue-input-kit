@@ -1,19 +1,28 @@
 const webpack = require("webpack");
 const path = require("path");
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const nodeExternals = require('webpack-node-externals');
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "index.js",
-        libraryTarget: "window",
-        library: 'VuePreview'
+        libraryTarget: "umd",
+        library: "SimpleKit"
     },
     mode: "development",
-    // target: 'node',
-    // externals: [nodeExternals()],
+    target: "web",
+    externals: [
+        nodeExternals({
+            importType: "umd"
+        })
+    ],
+    resolve: {
+        alias: {
+            node_modules: path.join(__dirname, "node_modules")
+        }
+    },
     module: {
         rules: [
             {
@@ -32,16 +41,16 @@ module.exports = {
                 use: [
                     "style-loader",
                     {
-                    loader: "css-loader"
-                }]
+                        loader: "css-loader"
+                    }
+                ]
             },
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                exclude: /(node_modules|bower_components)/,
+                loader: "vue-loader"
             }
         ]
     },
-    plugins: [
-        new VueLoaderPlugin()
-    ]
+    plugins: [new VueLoaderPlugin()]
 };

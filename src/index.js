@@ -13,7 +13,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add([faTimes, faCheck, faQuestionCircle, faPhoneAlt, faSpinner]);
-Vue.component("fa-icon", FontAwesomeIcon);
 
 valForm.addValMethod("has_valid_value", field => {
   return document
@@ -41,5 +40,6 @@ export default {
     Vue.component("simple-radio", SimpleRadio);
     Vue.component("simple-list-autocomplete", SimpleListAutocomplete);
     Vue.component("simple-ajax-autocomplete", SimpleAjaxAutocomplete);
+    Vue.component("fa-icon", FontAwesomeIcon);
   }
 };
