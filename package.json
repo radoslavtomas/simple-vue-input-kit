@@ -1,6 +1,6 @@
 {
   "name": "simple-vue-input-kit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Collection of custom Vue inputs",
   "author": "Radoslav Tomas",
@@ -8,9 +8,15 @@
   "main": "./dist/index.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "rollup --config",
+    "build": "bili",
     "prepublish": "npm run build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +43,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "@babel/runtime": "^7.6.3",
@@ -47,12 +54,16 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "bili": "^4.8.1",
+    "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.0.0",
+    "laravel-mix": "^5.0.0",
     "prettier": "^1.18.2",
     "rollup": "^1.24.0",
+    "rollup-plugin-includepaths": "^0.2.3",
+    "rollup-plugin-paths": "0.0.4",
     "rollup-plugin-vue": "^5.0.1",
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",

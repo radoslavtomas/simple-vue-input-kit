@@ -9,8 +9,7 @@ module.exports = {
     },
     babel: {
       exclude: "node_modules/**",
-      plugins: [['@babel/transform-runtime', { regenerator: false }]],
-      runtimeHelpers: true,
+      runtimeHelpers: true
     }
   }
 };

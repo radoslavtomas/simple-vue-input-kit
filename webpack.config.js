@@ -11,7 +11,7 @@ module.exports = {
         libraryTarget: "window",
         library: 'VuePreview'
     },
-    mode: "production",
+    mode: "development",
     // target: 'node',
     // externals: [nodeExternals()],
     module: {

@@ -10,7 +10,7 @@ export default {
     input: "src/index.js",
     output: {
         file: "dist/index.js",
-        format: "cjs"
+        format: "es"
     },
     plugins: [
         resolve(),
@@ -21,22 +21,22 @@ export default {
         VuePlugin(),
         postcss(),
         vue(),
-        nodeResolve({
-            jsnext: true,
-            main: true
-        }),
-
+        // nodeResolve({
+        //     jsnext: true,
+        //     main: true
+        // }),
+        //
         commonjs({
             // non-CommonJS modules will be ignored, but you can also
             // specifically include/exclude files
-            include: 'node_modules/**',  // Default: undefined
-            exclude: [ 'node_modules/foo/**', 'node_modules/bar/**' ],  // Default: undefined
+            // include: 'node_modules/**',  // Default: undefined
+            // exclude: [ 'node_modules/**' ],  // Default: undefined
             // these values can also be regular expressions
             // include: /node_modules/
 
             // search for files other than .js files (must already
             // be transpiled by a previous plugin!)
-            // extensions: [ '.js', '.coffee' ],  // Default: [ '.js' ]
+            extensions: [ '.js', '.vue', '.css' ],  // Default: [ '.js' ]
 
             // if true then uses of `global` won't be dealt with by this plugin
             ignoreGlobal: false,  // Default: false
