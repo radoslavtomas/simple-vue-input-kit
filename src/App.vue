@@ -154,24 +154,10 @@
 </template>
 
 <script>
-// import SimpleInput from "./components/SimpleInput.vue";
-// import SimpleSelect from "./components/SimpleSelect.vue";
-// import SimpleRadio from "./components/SimpleRadio.vue";
-// import SimpleDate from "./components/SimpleDate.vue";
-// import SimpleListAutocomplete from "./components/SimpleListAutocomplete.vue";
-// import SimpleAjaxAutocomplete from "./components/SimpleAjaxAutocomplete.vue";
 import valForm from "valform";
 
 export default {
   name: "app",
-  // components: {
-  //   SimpleInput,
-  //   SimpleSelect,
-  //   SimpleRadio,
-  //   SimpleDate,
-  //   SimpleListAutocomplete,
-  //   SimpleAjaxAutocomplete
-  // },
   data() {
     return {
       title: "Mr",
