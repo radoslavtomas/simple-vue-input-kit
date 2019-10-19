@@ -1,6 +1,6 @@
 {
-  "lists": {
-    "titles": {
+  "lists": [
+    {
       "id": "Titles",
       "list": [
         {
@@ -37,5 +37,5 @@
         }
       ]
     }
-  }
+  ]
 }
