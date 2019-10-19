@@ -36,6 +36,624 @@
           "description": "Prof"
         }
       ]
+    },
+    {
+      "id": "Makes",
+      "list": [
+        {
+          "code": "AC",
+          "description": "A.C."
+        },
+        {
+          "code": "AI",
+          "description": "Aixam"
+        },
+        {
+          "code": "AR",
+          "description": "Alfa Romeo"
+        },
+        {
+          "code": "AQ",
+          "description": "Allard"
+        },
+        {
+          "code": "AL",
+          "description": "Alvis"
+        },
+        {
+          "code": "AS",
+          "description": "Armstrong Siddeley"
+        },
+        {
+          "code": "AO",
+          "description": "Aro"
+        },
+        {
+          "code": "AY",
+          "description": "Asia"
+        },
+        {
+          "code": "AM",
+          "description": "Aston Martin"
+        },
+        {
+          "code": "AU",
+          "description": "Audi"
+        },
+        {
+          "code": "AN",
+          "description": "Austin"
+        },
+        {
+          "code": "AH",
+          "description": "Austin Healey"
+        },
+        {
+          "code": "DK",
+          "description": "Auto Union"
+        },
+        {
+          "code": "BM",
+          "description": "BMW"
+        },
+        {
+          "code": "BD",
+          "description": "Bedford"
+        },
+        {
+          "code": "BN",
+          "description": "Bentley"
+        },
+        {
+          "code": "BZ",
+          "description": "Bitter"
+        },
+        {
+          "code": "BO",
+          "description": "Bond"
+        },
+        {
+          "code": "BW",
+          "description": "Borgward"
+        },
+        {
+          "code": "BR",
+          "description": "Bristol"
+        },
+        {
+          "code": "BG",
+          "description": "Bugatti"
+        },
+        {
+          "code": "BU",
+          "description": "Buick"
+        },
+        {
+          "code": "CA",
+          "description": "Cadillac"
+        },
+        {
+          "code": "CT",
+          "description": "Caterham"
+        },
+        {
+          "code": "CH",
+          "description": "Chevrolet"
+        },
+        {
+          "code": "CY",
+          "description": "Chrysler - Australia"
+        },
+        {
+          "code": "CR",
+          "description": "Chrysler - USA"
+        },
+        {
+          "code": "CB",
+          "description": "Chrylser - UK"
+        },
+        {
+          "code": "CN",
+          "description": "Citroen"
+        },
+        {
+          "code": "DF",
+          "description": "D.A.F"
+        },
+        {
+          "code": "DC",
+          "description": "Dacia"
+        },
+        {
+          "code": "DW",
+          "description": "Daewoo"
+        },
+        {
+          "code": "DH",
+          "description": "Daihatsu"
+        },
+        {
+          "code": "DM",
+          "description": "Daimler"
+        },
+        {
+          "code": "DA",
+          "description": "Dallas"
+        },
+        {
+          "code": "DT",
+          "description": "De Tomaso"
+        },
+        {
+          "code": "DE",
+          "description": "Delorean"
+        },
+        {
+          "code": "DO",
+          "description": "Dodge"
+        },
+        {
+          "code": "ER",
+          "description": "Era"
+        },
+        {
+          "code": "FS",
+          "description": "F.S.O."
+        },
+        {
+          "code": "FV",
+          "description": "Facel Vega"
+        },
+        {
+          "code": "FP",
+          "description": "Fairthorpe"
+        },
+        {
+          "code": "FE",
+          "description": "Ferrari"
+        },
+        {
+          "code": "FT",
+          "description": "Fiat"
+        },
+        {
+          "code": "FO",
+          "description": "Ford - UK"
+        },
+        {
+          "code": "FA",
+          "description": "Ford - USA"
+        },
+        {
+          "code": "FN",
+          "description": "Ford - Australia"
+        },
+        {
+          "code": "FG",
+          "description": "Ford - Germany"
+        },
+        {
+          "code": "GE",
+          "description": "GEM"
+        },
+        {
+          "code": "GM",
+          "description": "GMC"
+        },
+        {
+          "code": "GL",
+          "description": "Gilbern"
+        },
+        {
+          "code": "GN",
+          "description": "Ginetta"
+        },
+        {
+          "code": "GO",
+          "description": "Goggomobil"
+        },
+        {
+          "code": "GK",
+          "description": "Gordon Keeble"
+        },
+        {
+          "code": "HM",
+          "description": "Hillman"
+        },
+        {
+          "code": "HI",
+          "description": "Hindustan"
+        },
+        {
+          "code": "HO",
+          "description": "Holden"
+        },
+        {
+          "code": "HD",
+          "description": "Honda"
+        },
+        {
+          "code": "HU",
+          "description": "Humber"
+        },
+        {
+          "code": "HY",
+          "description": "Hyundai"
+        },
+        {
+          "code": "IS",
+          "description": "Iso Rivolta"
+        },
+        {
+          "code": "IZ",
+          "description": "Isuzu"
+        },
+        {
+          "code": "IV",
+          "description": "Iveco"
+        },
+        {
+          "code": "JA",
+          "description": "Jaguar"
+        },
+        {
+          "code": "JE",
+          "description": "Jeep/AMC"
+        },
+        {
+          "code": "JN",
+          "description": "Jensen"
+        },
+        {
+          "code": "JO",
+          "description": "Jowett"
+        },
+        {
+          "code": "KH",
+          "description": "Khaleej"
+        },
+        {
+          "code": "KA",
+          "description": "Kia"
+        },
+        {
+          "code": "LR",
+          "description": "Land Rover"
+        },
+        {
+          "code": "LA",
+          "description": "Lada"
+        },
+        {
+          "code": "LM",
+          "description": "Lamborghini"
+        },
+        {
+          "code": "LL",
+          "description": "Lanchester"
+        },
+        {
+          "code": "LN",
+          "description": "Lancia"
+        },
+        {
+          "code": "LX",
+          "description": "Lexus - UK"
+        },
+        {
+          "code": "LU",
+          "description": "Lexus - USA"
+        },
+        {
+          "code": "LI",
+          "description": "Ligier"
+        },
+        {
+          "code": "LC",
+          "description": "Lincoln"
+        },
+        {
+          "code": "LO",
+          "description": "Lonsdale"
+        },
+        {
+          "code": "LT",
+          "description": "Lotus"
+        },
+        {
+          "code": "MG",
+          "description": "MG"
+        },
+        {
+          "code": "MH",
+          "description": "Mahindra"
+        },
+        {
+          "code": "MR",
+          "description": "Marcos"
+        },
+        {
+          "code": "ML",
+          "description": "Marlin"
+        },
+        {
+          "code": "MS",
+          "description": "Maserati"
+        },
+        {
+          "code": "MT",
+          "description": "Matra Simca"
+        },
+        {
+          "code": "MB",
+          "description": "Maybach"
+        },
+        {
+          "code": "MZ",
+          "description": "Mazda"
+        },
+        {
+          "code": "MC",
+          "description": "Mercedes"
+        },
+        {
+          "code": "MY",
+          "description": "Mercury"
+        },
+        {
+          "code": "MA",
+          "description": "Microcar"
+        },
+        {
+          "code": "MI",
+          "description": "Mini"
+        },
+        {
+          "code": "CO",
+          "description": "Mitsubishi"
+        },
+        {
+          "code": "MN",
+          "description": "Morgan"
+        },
+        {
+          "code": "MO",
+          "description": "Morris"
+        },
+        {
+          "code": "MK",
+          "description": "Moskvich"
+        },
+        {
+          "code": "NS",
+          "description": "NSU"
+        },
+        {
+          "code": "DS",
+          "description": "Nissan"
+        },
+        {
+          "code": "OK",
+          "description": "OKA"
+        },
+        {
+          "code": "OL",
+          "description": "Oldsmobile"
+        },
+        {
+          "code": "OP",
+          "description": "Opel"
+        },
+        {
+          "code": "PZ",
+          "description": "Panhard"
+        },
+        {
+          "code": "PT",
+          "description": "Panther"
+        },
+        {
+          "code": "PE",
+          "description": "Perodua"
+        },
+        {
+          "code": "PU",
+          "description": "Peugeot"
+        },
+        {
+          "code": "PG",
+          "description": "Piaggio"
+        },
+        {
+          "code": "PL",
+          "description": "Plymouth"
+        },
+        {
+          "code": "PO",
+          "description": "Pontiac"
+        },
+        {
+          "code": "PS",
+          "description": "Porsche"
+        },
+        {
+          "code": "PR",
+          "description": "Portaro"
+        },
+        {
+          "code": "PN",
+          "description": "Proton"
+        },
+        {
+          "code": "RM",
+          "description": "Rambler"
+        },
+        {
+          "code": "RE",
+          "description": "Reliant"
+        },
+        {
+          "code": "RN",
+          "description": "Renault"
+        },
+        {
+          "code": "RA",
+          "description": "Reva"
+        },
+        {
+          "code": "RL",
+          "description": "Riley"
+        },
+        {
+          "code": "RR",
+          "description": "Rolls"
+        },
+        {
+          "code": "RV",
+          "description": "Rover"
+        },
+        {
+          "code": "SN",
+          "description": "SANTANA"
+        },
+        {
+          "code": "SA",
+          "description": "Saab"
+        },
+        {
+          "code": "SO",
+          "description": "Sao"
+        },
+        {
+          "code": "SE",
+          "description": "Seat"
+        },
+        {
+          "code": "SM",
+          "description": "Simca"
+        },
+        {
+          "code": "SI",
+          "description": "Singer"
+        },
+        {
+          "code": "SK",
+          "description": "Skoda"
+        },
+        {
+          "code": "MM",
+          "description": "Smart"
+        },
+        {
+          "code": "SY",
+          "description": "Ssangyong"
+        },
+        {
+          "code": "SD",
+          "description": "Standard"
+        },
+        {
+          "code": "ST",
+          "description": "Studebaker"
+        },
+        {
+          "code": "SU",
+          "description": "Subaru"
+        },
+        {
+          "code": "SB",
+          "description": "Sunbeam"
+        },
+        {
+          "code": "SZ",
+          "description": "Suzuki"
+        },
+        {
+          "code": "TV",
+          "description": "TVR"
+        },
+        {
+          "code": "TB",
+          "description": "Talbot"
+        },
+        {
+          "code": "TT",
+          "description": "Tata"
+        },
+        {
+          "code": "TK",
+          "description": "Think"
+        },
+        {
+          "code": "TZ",
+          "description": "Tornado"
+        },
+        {
+          "code": "TY",
+          "description": "Toyota"
+        },
+        {
+          "code": "TR",
+          "description": "Triumph"
+        },
+        {
+          "code": "VW",
+          "description": "VW"
+        },
+        {
+          "code": "VA",
+          "description": "Valiant"
+        },
+        {
+          "code": "VP",
+          "description": "Vanden Plas"
+        },
+        {
+          "code": "VX",
+          "description": "Vauxhall"
+        },
+        {
+          "code": "VE",
+          "description": "Vexel"
+        },
+        {
+          "code": "VL",
+          "description": "Volga"
+        },
+        {
+          "code": "VO",
+          "description": "Volvo"
+        },
+        {
+          "code": "WT",
+          "description": "Wartburg"
+        },
+        {
+          "code": "WS",
+          "description": "Wolseley"
+        },
+        {
+          "code": "YU",
+          "description": "Yugo/Zastava"
+        }
+      ]
+    },
+    {
+      "id": "CreditCardTypes",
+      "list": [
+        {
+          "code": "Visa/Delta/Electron",
+          "description": "Visa/Delta/Electron"
+        },
+        {
+          "code": "Mastercard/EuroCard",
+          "description": "Mastercard/EuroCard"
+        },
+        {
+          "code": "Switch/Solo/Maestro",
+          "description": "Switch/Solo/Maestro"
+        }
+      ]
     }
   ]
 }
