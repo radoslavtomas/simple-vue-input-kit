@@ -1,0 +1,38 @@
+{
+  "lists": {
+    "titles": [
+      {
+        "code": "",
+        "description": "- Please choose -"
+      },
+      {
+        "code": "Mr",
+        "description": "Mr"
+      },
+      {
+        "code": "Mrs",
+        "description": "Mrs"
+      },
+      {
+        "code": "Miss",
+        "description": "Miss"
+      },
+      {
+        "code": "Ms",
+        "description": "Ms"
+      },
+      {
+        "code": "Dr",
+        "description": "Dr"
+      },
+      {
+        "code": "Sir",
+        "description": "Sir"
+      },
+      {
+        "code": "Prof",
+        "description": "Prof"
+      }
+    ]
+  }
+}
