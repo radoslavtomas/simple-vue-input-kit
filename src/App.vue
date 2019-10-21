@@ -6,62 +6,37 @@
         name="title"
         v-model="title"
         label="Title"
-        hint="This is new hint about something"
         validation="required"
         list="Titles"
-        default="Mrs"
-        search-url="https://api.quotelinedirect.co.uk/miscellaneous/lists/get/list/?list=lkp_"
+        search-url="https://my-json-server.typicode.com/radoslavtomas/simple-vue-input-kit/lists/"
         @select="handleBlur"
       ></simple-select>
 
-      <simple-list-autocomplete
-        v-model="makes"
-        name="makes"
-        label="Cars"
-        validation="required|has_valid_value"
-        main-value="description"
-        list="Makes"
-        search-url="https://api.quotelinedirect.co.uk/miscellaneous/lists/get/list/?list=lkp_"
+      <simple-input
+        v-model="first_name"
+        type="text"
+        topClassList="first_name"
+        :classList="['special', 'different_class']"
+        hint="<strong>Lorem ipsum</strong> <br />dolor sit amet consectetur, adipisicing elit. Rem deleniti velit enim porro sequi, fugiat unde obcaecati quos ullam blanditiis dolorum cum nihil facilis similique voluptatibus, accusantium quo laboriosam repellat."
+        name="first_name"
+        label="First Name"
+        validation="required|min_length[3]"
         @change="handleChange"
-      ></simple-list-autocomplete>
+      ></simple-input>
 
-      <simple-ajax-autocomplete
-        v-model="occupation"
-        name="occupation"
-        label="Occupation"
-        validation="required|has_valid_value"
-        code-url="https://api.quotelinedirect.co.uk/occupation/occupations/get/bycode/?code="
-        search-url="https://api.quotelinedirect.co.uk/occupation/occupations/get/bysearch/?keyword="
+      <simple-input
+        v-model="surname"
+        type="text"
+        name="surname"
+        label="Surname"
+        validation="required|max_length[5]"
         @change="handleChange"
-      ></simple-ajax-autocomplete>
-
-      <simple-ajax-autocomplete
-        v-model="employment"
-        name="employment"
-        label="Employment"
-        validation="required|has_valid_value"
-        main-value="code"
-        code-url="https://api.quotelinedirect.co.uk/occupation/employers/get/bycode/?code="
-        search-url="https://api.quotelinedirect.co.uk/occupation/employers/get/bysearch/?keyword="
-        @change="handleChange"
-      ></simple-ajax-autocomplete>
-
-      <simple-date
-        name="dob"
-        v-model="dob"
-        label="Date of birth"
-        hint="This is new hint about DOB"
-        validation="required|valid_date|min_years_in_past[5]"
-        class-list="hello"
-        default="05/05/2010"
-        @blur="handleBlur"
-      ></simple-date>
+      ></simple-input>
 
       <simple-radio
         name="gender"
         v-model="gender"
         label="Gender"
-        hint="This is new hint about gender"
         validation="required"
         :column="false"
         :list="[
@@ -71,15 +46,48 @@
         @select="handleBlur"
       ></simple-radio>
 
+      <simple-date
+        name="dob"
+        v-model="dob"
+        label="Date of birth"
+        hint="Must be 17 years in the past"
+        validation="required|valid_date|min_years_in_past[17]"
+        @blur="handleBlur"
+      ></simple-date>
+
+      <simple-list-autocomplete
+        v-model="cars"
+        name="cars"
+        label="What car do you drive? (loaded list search)"
+        validation="required|has_valid_value"
+        main-value="description"
+        display="cars"
+        list="Makes"
+        search-url="https://my-json-server.typicode.com/radoslavtomas/simple-vue-input-kit/lists/"
+        @change="handleChange"
+      ></simple-list-autocomplete>
+
+      <simple-ajax-autocomplete
+        v-model="cars_ajax"
+        name="cars_ajax"
+        label="What car do you drive? (ajax search)"
+        validation="required|has_valid_value"
+        :development="true"
+        display="cars ajax"
+        code-url="https://my-json-server.typicode.com/radoslavtomas/simple-vue-input-kit/lists/Makes"
+        search-url="https://my-json-server.typicode.com/radoslavtomas/simple-vue-input-kit/lists/Makes"
+        @change="handleChange"
+      ></simple-ajax-autocomplete>
+
       <simple-radio
-        name="fuel"
-        v-model="fuel"
-        label="Fuel type"
-        hint="This is new hint about fuel"
+        name="card_type"
+        v-model="card"
+        label="What type of card do you have?"
         validation="required"
         :column="true"
-        list="Fuel"
-        search-url="https://api.quotelinedirect.co.uk/miscellaneous/lists/get/list/?list=lkp_"
+        display="cards"
+        list="CreditCardTypes"
+        search-url="https://my-json-server.typicode.com/radoslavtomas/simple-vue-input-kit/lists/"
         @select="handleBlur"
       ></simple-radio>
 
@@ -93,30 +101,6 @@
         list="yesno"
         @select="handleBlur"
       ></simple-radio>
-
-      <simple-input
-        v-model="name"
-        type="text"
-        topClassList="bollington"
-        :classList="['hello', 'kitty']"
-        hint="<strong>Lorem ipsum</strong> <br />dolor sit amet consectetur, adipisicing elit. Rem deleniti velit enim porro sequi, fugiat unde obcaecati quos ullam blanditiis dolorum cum nihil facilis similique voluptatibus, accusantium quo laboriosam repellat."
-        name="first_name"
-        label="First Name"
-        validation="required|min_length[3]"
-        @change="handleChange"
-      ></simple-input>
-
-      <simple-input
-        v-model="surname"
-        type="text"
-        hint="This is new hint about something"
-        topClassList="bollington"
-        :classList="['hello', 'kitty']"
-        name="surname"
-        label="Surname"
-        validation="required|max_length[5]"
-        @change="handleChange"
-      ></simple-input>
 
       <simple-input
         type="text"
@@ -174,19 +158,20 @@ export default {
   // },
   data() {
     return {
-      title: "Mr",
-      name: "Rado",
+      title: "",
+      first_name: "",
       surname: "",
-      dob: "05/05/2000",
+      dob: "",
       address: "",
       postcode: "",
       mobile: "",
       gender: "",
-      fuel: "E",
-      resident: "Y",
-      makes: "Toyota",
-      employment: "086",
-      occupation: "165"
+      card: "",
+      resident: "",
+      cars: "",
+      cars_ajax: "AN",
+      employment: "",
+      occupation: ""
     };
   },
   methods: {
