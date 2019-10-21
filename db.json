@@ -402,6 +402,10 @@
       "id": "CreditCardTypes",
       "list": [
         {
+          "code": "",
+          "description": "- Please choose -"
+        },
+        {
           "code": "Visa/Delta/Electron",
           "description": "Visa/Delta/Electron"
         },
