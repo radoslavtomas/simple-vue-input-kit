@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Hello New Inputs</h1>
+    <h1>Simple Vue Input Kit - Demo</h1>
     <form>
       <simple-select
         name="title"
@@ -92,35 +92,15 @@
       ></simple-radio>
 
       <simple-radio
-        name="resident"
-        v-model="resident"
-        label="Have you lived in UK since birth?"
-        display="Resident"
+        name="rate"
+        v-model="rate"
+        label="Would you like to rate our app?"
+        display="rating"
         validation="required"
         :column="false"
         list="yesno"
         @select="handleBlur"
       ></simple-radio>
-
-      <simple-input
-        type="text"
-        name="address"
-        v-model="address"
-        label="Address line"
-        placeholder="number or house name"
-        validation="required|max_length[32]"
-        @change="handleChange"
-      ></simple-input>
-
-      <simple-input
-        type="text"
-        name="postcode"
-        v-model="postcode"
-        label="Postcode"
-        :classList="['uppercase', 'hello', 'kitty']"
-        validation="required"
-        @change="handleChange"
-      ></simple-input>
 
       <simple-input
         type="tel"
@@ -138,40 +118,22 @@
 </template>
 
 <script>
-// import SimpleInput from "./components/SimpleInput.vue";
-// import SimpleSelect from "./components/SimpleSelect.vue";
-// import SimpleRadio from "./components/SimpleRadio.vue";
-// import SimpleDate from "./components/SimpleDate.vue";
-// import SimpleListAutocomplete from "./components/SimpleListAutocomplete.vue";
-// import SimpleAjaxAutocomplete from "./components/SimpleAjaxAutocomplete.vue";
 import valForm from "valform";
 
 export default {
   name: "app",
-  // components: {
-  //   SimpleInput,
-  //   SimpleSelect,
-  //   SimpleRadio,
-  //   SimpleDate,
-  //   SimpleListAutocomplete,
-  //   SimpleAjaxAutocomplete
-  // },
   data() {
     return {
       title: "",
       first_name: "",
       surname: "",
-      dob: "",
-      address: "",
-      postcode: "",
-      mobile: "",
       gender: "",
-      card: "",
-      resident: "",
+      dob: "",
       cars: "",
-      cars_ajax: "AN",
-      employment: "",
-      occupation: ""
+      cars_ajax: "",
+      card: "",
+      rate: "",
+      mobile: ""
     };
   },
   methods: {
@@ -198,7 +160,7 @@ export default {
 <style>
 #app {
   width: 35%;
-  margin: 0 auto;
+  margin-left: 250px;
 }
 
 .btn {
@@ -213,9 +175,10 @@ a.btn {
   text-decoration: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
   #app {
     width: 95%;
+    margin: 0 auto;
   }
 }
 </style>

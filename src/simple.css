@@ -203,6 +203,7 @@ html,
     border-bottom: 1px solid #cbd5e0;
     border-right: none;
     border-left: none;
+    width: 32%;
 }
 
 .simple__input .simple__input__date input:first-of-type {
@@ -358,7 +359,7 @@ html,
     content: "";
     position: absolute;
     top: 2%;
-    left: -3%;
+    left: -13px;
     width: 0;
     height: 0;
     border-style: solid;
