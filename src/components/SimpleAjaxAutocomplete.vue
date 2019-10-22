@@ -134,6 +134,10 @@ export default {
       validator(val) {
         return val.length <= 3;
       }
+    },
+    development: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -152,7 +156,12 @@ export default {
 
       if (value.length > 0) {
         // in this way we can debounce this method
-        this.searchForList(value);
+        if (this.development) {
+          console.log("dev");
+          this.searchForListDev(value);
+        } else {
+          this.searchForList(value);
+        }
       } else {
         this.optionsToShow = [];
       }
@@ -173,8 +182,31 @@ export default {
         }
       }
     }, 250),
+    searchForListDev: debounce(async function(value) {
+      this.searching = true;
+
+      let list = await this.getData(this.searchUrl);
+
+      console.log(list);
+
+      this.optionsToShow = list.list
+        .filter(option => {
+          let opt = option.description.toLowerCase();
+          let val = value.toLowerCase();
+          return opt.indexOf(val) != -1;
+        })
+        .slice(0, 5);
+
+      this.searching = false;
+
+      for (let option of this.optionsToShow) {
+        if (value === option.description) {
+          this.setResult(option);
+        }
+      }
+    }, 250),
     async fetchValueByCode() {
-      if (!this.value || this.value.length !== 3) {
+      if (!this.value) {
         return;
       }
 
@@ -191,13 +223,43 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    async fetchValueByCodeDev() {
+      if (!this.value) {
+        return;
+      }
+
+      try {
+        this.searching = true;
+        const list = await this.getData(this.codeUrl);
+
+        const option = {
+          code: this.value,
+          description: ""
+        };
+
+        for (let item of list.list) {
+          if (this.value === item.code) {
+            option.description = item.description;
+            this.setResult(option, false);
+          }
+        }
+
+        this.searching = false;
+      } catch (error) {
+        console.log(error);
+      }
     }
   },
   async mounted() {
     this.setClassObserver();
-    await this.fetchValueByCode();
+    if (this.development) {
+      this.fetchValueByCodeDev();
+    } else {
+      await this.fetchValueByCode();
+    }
   }
 };
 </script>
 
-<style scoped></style>
+<style></style>
