@@ -6,7 +6,7 @@ const nodeExternals = require("webpack-node-externals");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "main"),
     filename: "index.js",
     libraryTarget: "umd",
     library: "SimpleKit"
