@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Simple Vue Input Kit - Demo</h1>
-    <form>
+    <form action="" method="POST">
       <simple-select
         name="title"
         v-model="title"
@@ -112,6 +112,16 @@
         @change="handleChange"
       ></simple-input>
 
+      <div v-if="formValid != null && formValid === true" class="message valid">
+        {{ messages.valid }}
+      </div>
+      <div
+        v-if="formValid != null && formValid === false"
+        class="message invalid"
+      >
+        {{ messages.invalid }}
+      </div>
+
       <a href="#" class="btn" @click.prevent="validateForm">Validate</a>
     </form>
   </div>
@@ -133,7 +143,12 @@ export default {
       cars_ajax: "",
       card: "",
       rate: "",
-      mobile: ""
+      mobile: "",
+      messages: {
+        valid: "Form is valid, ready to submit",
+        invalid: "Form is not valid yet"
+      },
+      formValid: null
     };
   },
   methods: {
@@ -143,8 +158,9 @@ export default {
     handleChange(data) {
       console.log(data);
     },
-    validateForm() {
-      valForm.validateForm();
+    async validateForm() {
+      const valid = await valForm.validateForm();
+      this.formValid = valid ? true : false;
     }
   },
   mounted() {
@@ -161,6 +177,7 @@ export default {
 #app {
   width: 35%;
   margin-left: 250px;
+  margin-bottom: 50px;
 }
 
 .btn {
@@ -173,6 +190,22 @@ export default {
 a.btn {
   color: #252525;
   text-decoration: none;
+}
+
+.message {
+  color: #fff;
+  padding-left: 12px;
+  height: 40px;
+  line-height: 40px;
+  width: calc(100% - 30px);
+}
+
+.message.valid {
+  background-color: green;
+}
+
+.message.invalid {
+  background-color: red;
 }
 
 @media (max-width: 950px) {

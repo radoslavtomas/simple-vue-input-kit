@@ -11,7 +11,7 @@ module.exports = {
     libraryTarget: "umd",
     library: "SimpleKit"
   },
-  mode: "development",
+  mode: "production",
   target: "web",
   externals: [
     nodeExternals({
