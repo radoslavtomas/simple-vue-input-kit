@@ -25,6 +25,12 @@
 
       <div class="simple__input__inner">
         <div
+          tabindex="0"
+          @keyup.space="selectNextOption"
+          @keyup.down="selectNextOption"
+          @keyup.up="selectPreviousOption"
+          @keyup.right="selectNextOption"
+          @keyup.left="selectPreviousOption"
           class="inner__left inner__radio"
           :class="[{ column: column }, classList]"
         >
@@ -129,6 +135,45 @@ export default {
 
       valForm.validateHidden(this.name, option.code);
     },
+    selectNextOption(event) {
+      event.preventDefault();
+      if (!this.value) {
+        this.chooseOption(this.options[0]);
+      } else {
+        const index = this.getIndexOfActiveOption();
+        const nextIndex = this.getNextIndex(index);
+
+        this.chooseOption(this.options[nextIndex]);
+      }
+    },
+    selectPreviousOption(event) {
+      event.preventDefault();
+      if (!this.value) {
+        this.chooseOption(this.options[0]);
+      } else {
+        const index = this.getIndexOfActiveOption();
+        const previousIndex = this.getPreviousIndex(index);
+
+        this.chooseOption(this.options[previousIndex]);
+      }
+    },
+    getIndexOfActiveOption() {
+      return this.options.findIndex(obj => obj.code === this.value);
+    },
+    getNextIndex(index) {
+      if (index === this.options.length - 1) {
+        return 0;
+      } else {
+        return index + 1;
+      }
+    },
+    getPreviousIndex(index) {
+      if (index === 0) {
+        return this.options.length - 1;
+      } else {
+        return index - 1;
+      }
+    },
     async setArrayOptions() {
       return new Promise(resolve => {
         this.options = this.list;
@@ -156,11 +201,29 @@ export default {
           return await this.setAjaxOptions();
         }
       }
+    },
+    keyDown(event) {
+      if (
+        (event.keyCode == 32 ||
+          event.keyCode == 37 ||
+          event.keyCode == 38 ||
+          event.keyCode == 39 ||
+          event.keyCode == 40) &&
+        event.target.classList.contains("inner__radio")
+      ) {
+        event.preventDefault();
+      }
     }
   },
   async mounted() {
     this.setClassObserver();
     await this.setOptions();
+  },
+  created() {
+    window.addEventListener("keydown", this.keyDown);
+  },
+  destroyed() {
+    window.removeEventListener("keydown", this.keyDown);
   }
 };
 </script>
