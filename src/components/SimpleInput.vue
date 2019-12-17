@@ -81,7 +81,7 @@ export default {
   props: {
     type: {
       // input type, date and hidden would not work properly
-      type: String,
+      type: [String, Number],
       default: "text",
       required: true,
       validator(val) {
