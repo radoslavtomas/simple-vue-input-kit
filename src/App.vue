@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Simple Vue Input Kit - Demo</h1>
-    <form action="" method="POST">
+    <form action method="POST">
       <simple-select
         name="title"
         v-model="title"
@@ -107,7 +107,7 @@
         name="mobile"
         v-model="mobile"
         label="Mobile number"
-        beforeSign="☏"
+        beforeSign="phone-alt"
         validation="required|exact_length[11]"
         @change="handleChange"
       ></simple-input>

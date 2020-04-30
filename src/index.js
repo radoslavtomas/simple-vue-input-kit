@@ -7,11 +7,37 @@ import {
   faCheck,
   faQuestionCircle,
   faPhoneAlt,
-  faSpinner
+  faMobileAlt,
+  faSpinner,
+  faAt,
+  faEnvelope,
+  faUser,
+  faMapMarkerAlt,
+  faAddressCard,
+  faHome,
+  faCar,
+  faTaxi,
+  faTruck
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add([faTimes, faCheck, faQuestionCircle, faPhoneAlt, faSpinner]);
+library.add([
+  faTimes,
+  faCheck,
+  faQuestionCircle,
+  faPhoneAlt,
+  faMobileAlt,
+  faSpinner,
+  faAt,
+  faEnvelope,
+  faUser,
+  faMapMarkerAlt,
+  faAddressCard,
+  faHome,
+  faCar,
+  faTaxi,
+  faTruck
+]);
 
 valForm.addValMethod("has_valid_value", field => {
   return document

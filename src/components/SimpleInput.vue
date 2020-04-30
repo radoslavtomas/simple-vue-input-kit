@@ -25,8 +25,12 @@
 
       <div class="simple__input__inner">
         <div class="inner__left">
-          <div class="simple__input__before" v-if="beforeSign">
-            {{ beforeSign }}
+          <div
+            class="simple__input__before"
+            v-if="beforeSign"
+            :class="{ valid: inputValid, error: inputError }"
+          >
+            <fa-icon :icon="beforeSign"></fa-icon>
           </div>
           <input
             :ref="name"
@@ -46,7 +50,7 @@
           />
         </div>
 
-        <div class="simple__input__feedback">
+        <!-- <div class="simple__input__feedback">
           <fa-icon
             v-if="inputValid"
             class="simple__input__feedback__valid"
@@ -57,7 +61,7 @@
             class="simple__input__feedback__error"
             icon="times"
           ></fa-icon>
-        </div>
+        </div>-->
       </div>
     </div>
     <div
@@ -96,10 +100,7 @@ export default {
     beforeSign: {
       // if provided it will be rendered on the input's left side
       type: String,
-      default: "",
-      validator(val) {
-        return val.length <= 3;
-      }
+      default: ""
     }
   },
   data() {

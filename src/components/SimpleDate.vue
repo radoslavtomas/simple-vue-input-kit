@@ -67,7 +67,7 @@
           />
         </div>
 
-        <div class="simple__input__feedback">
+        <!-- <div class="simple__input__feedback">
           <fa-icon
             v-if="inputValid"
             class="simple__input__feedback__valid"
@@ -78,7 +78,7 @@
             class="simple__input__feedback__error"
             icon="times"
           ></fa-icon>
-        </div>
+        </div>-->
       </div>
     </div>
     <div
