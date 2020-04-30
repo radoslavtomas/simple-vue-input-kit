@@ -1,12 +1,7 @@
 html,
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-form {
-  border: 1px solid #ccc;
-  padding: 16px;
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 .simple__form__field {
