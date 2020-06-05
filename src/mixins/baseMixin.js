@@ -35,7 +35,7 @@ export default {
     },
     value: {
       // used for v-model in parent element
-      type: String
+      type: String | Boolean | Array
     },
     hint: {
       // hint text, HTML characters will be accepted (they are not escaped)

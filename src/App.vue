@@ -112,6 +112,17 @@
         @change="handleChange"
       ></simple-input>
 
+      <simple-checkbox
+        name="hobbies"
+        label="What are your hobbies?"
+        :boxes="hobbies"
+        return="yes-no"
+        v-model="hobbiesValues"
+        hint="<strong>Lorem ipsum</strong> <br />dolor sit amet consectetur, adipisicing elit. Rem deleniti velit enim porro sequi, fugiat unde obcaecati quos ullam blanditiis dolorum cum nihil facilis similique voluptatibus, accusantium quo laboriosam repellat."
+        validation="required"
+        @change="handleChange"
+      ></simple-checkbox>
+
       <div v-if="formValid != null && formValid === true" class="message valid">
         {{ messages.valid }}
       </div>
@@ -137,18 +148,43 @@ export default {
       title: "",
       first_name: "",
       surname: "",
-      gender: "",
+      gender: "M",
       dob: "",
       cars: "",
       cars_ajax: "",
       card: "",
       rate: "",
       mobile: "",
+      newsletter: false,
       messages: {
         valid: "Form is valid, ready to submit",
         invalid: "Form is not valid yet"
       },
-      formValid: null
+      formValid: null,
+      hobbiesValues: {
+        hobby1: "N",
+        hobby2: "Y",
+        hobby3: "N",
+        hobby4: "N"
+      },
+      hobbies: [
+        {
+          name: "hobby1",
+          label: "Traveling"
+        },
+        {
+          name: "hobby2",
+          label: "Reading"
+        },
+        {
+          name: "hobby3",
+          label: "Music"
+        },
+        {
+          name: "hobby4",
+          label: "Unicorn hunting"
+        }
+      ]
     };
   },
   methods: {
