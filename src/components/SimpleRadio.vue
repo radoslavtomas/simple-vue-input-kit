@@ -133,7 +133,9 @@ export default {
         description: option.description
       });
 
-      valForm.validateHidden(this.name, option.code);
+      if (!this.optional) {
+        valForm.validateHidden(this.name, option.code);
+      }
     },
     selectNextOption(event) {
       event.preventDefault();

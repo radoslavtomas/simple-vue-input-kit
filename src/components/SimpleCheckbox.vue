@@ -10,7 +10,7 @@
     />
 
     <div class="simple__input">
-      <label for>{{ label }}</label>
+      <label for v-if="label !== 'hidden'">{{ label }}</label>
       <div class="simple__input__inner checkbox__wrap">
         <div v-for="item in checkboxes" :key="item.name">
           <div
@@ -112,7 +112,9 @@ export default {
       });
 
       this.$emit("input", this.getAllValues());
-      valForm.validateHidden(this.name, this.validationValue);
+      if (!this.optional) {
+        valForm.validateHidden(this.name, this.validationValue);
+      }
     },
     getAllValues() {
       let data = {};

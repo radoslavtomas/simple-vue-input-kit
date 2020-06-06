@@ -123,6 +123,16 @@
         @change="handleChange"
       ></simple-checkbox>
 
+      <simple-checkbox
+        name="documents"
+        label="hidden"
+        :boxes="delivery"
+        return="yes-no"
+        v-model="deliveryValue"
+        :optional="true"
+        @change="updateDelivery"
+      ></simple-checkbox>
+
       <div v-if="formValid != null && formValid === true" class="message valid">
         {{ messages.valid }}
       </div>
@@ -155,12 +165,20 @@ export default {
       card: "",
       rate: "",
       mobile: "",
-      newsletter: false,
       messages: {
         valid: "Form is valid, ready to submit",
         invalid: "Form is not valid yet"
       },
       formValid: null,
+      deliveryValue: {
+        documentdelivery: "N"
+      },
+      delivery: [
+        {
+          name: "documentdelivery",
+          label: "hidden"
+        }
+      ],
       hobbiesValues: {
         hobby1: "N",
         hobby2: "Y",
@@ -193,6 +211,9 @@ export default {
     },
     handleChange(data) {
       console.log(data);
+    },
+    updateDelivery() {
+      console.log(this.deliveryValue.documentdelivery);
     },
     async validateForm() {
       const valid = await valForm.validateForm();
