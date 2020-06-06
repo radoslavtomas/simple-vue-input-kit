@@ -103,14 +103,14 @@ html,
 /* CHECKBOX */
 .simple__input .simple__input__inner.checkbox__wrap {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
   margin-bottom: 5px;
 }
 
 .simple__input .inner__left.inner__checkbox {
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 5px;
 }
