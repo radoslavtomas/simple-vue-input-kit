@@ -23,7 +23,7 @@
               :class="{
                 active: value,
                 valid: inputValid,
-                error: inputError
+                error: inputError,
               }"
               @click="toggleBox(item.name)"
             >
@@ -71,47 +71,57 @@
 </template>
 
 <script>
-import baseMixin from "./../mixins/baseMixin";
-import valForm from "valform";
+import baseMixin from './../mixins/baseMixin';
+import valForm from 'valform';
 
 export default {
-  name: "simple-checkbox",
+  name: 'simple-checkbox',
   mixins: [baseMixin],
   props: {
     return: {
       type: String,
-      default: "bool",
+      default: 'bool',
       required: false,
       validator(val) {
-        return ["bool", "zero-one", "yes-no"].indexOf(val) !== -1;
-      }
+        return ['bool', 'zero-one', 'yes-no'].indexOf(val) !== -1;
+      },
     },
     boxes: {
-      type: Array
-    }
+      type: Array,
+    },
   },
   data() {
     return {
       checkboxes: [],
-      checked: false
+      checked: false,
     };
   },
   beforeMount() {
-    this.checkboxes = this.boxes.map(item => {
+    this.checkboxes = this.boxes.map((item) => {
       item.checked = false;
       return item;
     });
   },
   methods: {
     toggleBox(name) {
-      this.checkboxes = this.checkboxes.map(box => {
+      this.checkboxes = this.checkboxes.map((box) => {
         if (box.name === name) {
           box.checked = !box.checked;
         }
         return box;
       });
 
-      this.$emit("input", this.getAllValues());
+      const values = this.getAllValues();
+
+      this.$emit('input', values);
+
+      this.$emit('select', {
+        event: 'select',
+        input: 'checkbox',
+        name: this.name,
+        values: values,
+      });
+
       if (!this.optional) {
         valForm.validateHidden(this.name, this.validationValue);
       }
@@ -119,7 +129,7 @@ export default {
     getAllValues() {
       let data = {};
 
-      this.checkboxes.forEach(box => {
+      this.checkboxes.forEach((box) => {
         data[box.name] = this.returnValue(box.checked);
       });
 
@@ -127,13 +137,13 @@ export default {
     },
     returnValue(val) {
       switch (this.return) {
-        case "bool":
+        case 'bool':
           return val;
 
-        case "yes-no":
-          return val ? "Y" : "N";
+        case 'yes-no':
+          return val ? 'Y' : 'N';
 
-        case "zero-one":
+        case 'zero-one':
           return val ? 1 : 0;
 
         default:
@@ -145,8 +155,8 @@ export default {
         return;
       }
 
-      Object.keys(this.value).forEach(name => {
-        this.checkboxes = this.checkboxes.map(box => {
+      Object.keys(this.value).forEach((name) => {
+        this.checkboxes = this.checkboxes.map((box) => {
           if (box.name === name) {
             const boolValue = this.getBooleanValue(this.value[name]);
             box.checked = boolValue;
@@ -157,37 +167,37 @@ export default {
     },
     getBooleanValue(val) {
       switch (this.return) {
-        case "bool":
+        case 'bool':
           return val;
 
-        case "yes-no":
-          return val === "Y" ? true : false;
+        case 'yes-no':
+          return val === 'Y' ? true : false;
 
-        case "zero-one":
+        case 'zero-one':
           return val === 1 ? true : false;
 
         default:
           return false;
       }
-    }
+    },
   },
   computed: {
     validationValue() {
       let value = 0;
 
-      this.checkboxes.forEach(box => {
+      this.checkboxes.forEach((box) => {
         if (box.checked) {
           value++;
         }
       });
 
-      return value === 0 ? "" : value.toString();
-    }
+      return value === 0 ? '' : value.toString();
+    },
   },
   mounted() {
     this.setClassObserver();
     this.setAllValues();
-  }
+  },
 };
 </script>
 
