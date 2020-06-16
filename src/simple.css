@@ -14,7 +14,7 @@ html,
 
 .simple__input {
   font-size: 14px;
-  color: #252525;
+  color: #4a5568;
   width: 100%;
   margin-bottom: 5px;
 }
@@ -120,14 +120,17 @@ html,
 }
 
 .simple__input .inner__left.inner__checkbox label {
+  width: calc(100% - 40px);
   margin-left: 10px;
   margin-bottom: 0;
 }
+
 .simple__input .simple__input__checkbox {
   height: 30px;
   width: 30px;
   line-height: 30px;
   text-align: center;
+  background-color: #ffffff;
   border: 1px solid #cbd5e0;
   cursor: pointer;
 }
@@ -421,7 +424,7 @@ html,
 }
 
 .simple__help::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 2%;
   left: -13px;
