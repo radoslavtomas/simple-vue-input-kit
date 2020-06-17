@@ -30,9 +30,9 @@
               <fa-icon icon="check" class="fa-lg" v-if="item.checked"></fa-icon>
             </div>
 
-            <label :for="name" v-if="item.label !== 'hidden'">
-              {{ item.label }}
-            </label>
+            <label :for="name" v-if="item.label !== 'hidden'">{{
+              item.label
+            }}</label>
           </div>
         </div>
       </div>

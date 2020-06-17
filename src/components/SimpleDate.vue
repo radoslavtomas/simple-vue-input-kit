@@ -166,15 +166,19 @@ export default {
         value: this.fullDate
       });
 
-      console.log("bluring");
-
-      setTimeout(() => {
+      setTimeout(async () => {
         // check active element after a little pause
         // as straight after blur it will be document
         if (!this.checkActiveDate()) {
           const nearestForm = this.getNearestForm(this.$refs[this.name]);
           console.log("validating");
-          valForm.validateHidden(this.name, this.fullDate, nearestForm.id);
+          console.log(nearestForm);
+          console.log(nearestForm.id);
+          await valForm.validateHidden(
+            this.name,
+            this.fullDate,
+            nearestForm.id
+          );
         }
       }, 50);
     },
