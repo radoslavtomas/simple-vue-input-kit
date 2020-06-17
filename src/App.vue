@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Simple Vue Input Kit - Demo</h1>
-    <form action method="POST">
+    <form action method="POST" id="demo_form">
       <simple-select
         name="title"
         v-model="title"
@@ -197,12 +197,13 @@ export default {
       console.log(this.deliveryValue.documentdelivery);
     },
     async validateForm() {
-      const valid = await valForm.validateForm();
+      const valid = await valForm.validateForm("demo_form");
       this.formValid = valid ? true : false;
     }
   },
   mounted() {
     valForm.init({
+      formId: "demo_form",
       validationErrorClass: "error",
       validationValidClass: "valid",
       appendAfter: "simple__input__inner"

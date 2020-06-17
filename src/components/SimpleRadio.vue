@@ -18,7 +18,8 @@
           :class="`help__btn__${name}`"
           @click.prevent="openHelp"
         >
-          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon
+          >Need help?
         </sup>
       </label>
 
@@ -44,7 +45,9 @@
             }"
             :key="option.code"
             @click="chooseOption(option)"
-          >{{ option.description }}</div>
+          >
+            {{ option.description }}
+          </div>
 
           <input
             type="hidden"

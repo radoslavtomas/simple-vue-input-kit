@@ -13,13 +13,17 @@
       <label for v-if="label !== 'hidden'">{{ label }}</label>
       <div class="simple__input__inner checkbox__wrap">
         <div v-for="item in checkboxes" :key="item.name">
-          <div tabindex="0" class="inner__left inner__checkbox" :class="[classList]">
+          <div
+            tabindex="0"
+            class="inner__left inner__checkbox"
+            :class="[classList]"
+          >
             <div
               class="simple__input__checkbox"
               :class="{
                 active: value,
                 valid: inputValid,
-                error: inputError,
+                error: inputError
               }"
               @click="toggleBox(item.name)"
             >
@@ -27,9 +31,7 @@
             </div>
 
             <label :for="name" v-if="item.label !== 'hidden'">
-              {{
-              item.label
-              }}
+              {{ item.label }}
             </label>
           </div>
         </div>
@@ -47,7 +49,12 @@
         :data-val-allow-empty="optional"
       />
     </div>
-    <div v-if="hint" class="simple__help__btn" :class="`help__btn__${name}`" @click="openHelp">
+    <div
+      v-if="hint"
+      class="simple__help__btn"
+      :class="`help__btn__${name}`"
+      @click="openHelp"
+    >
       <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need
       help?
     </div>

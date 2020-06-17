@@ -18,7 +18,8 @@
           :class="`help__btn__${name}`"
           @click.prevent="openHelp"
         >
-          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
+          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon
+          >Need help?
         </sup>
       </label>
 
@@ -165,11 +166,14 @@ export default {
         value: this.fullDate
       });
 
+      console.log("bluring");
+
       setTimeout(() => {
         // check active element after a little pause
         // as straight after blur it will be document
         if (!this.checkActiveDate()) {
           const nearestForm = this.getNearestForm(this.$refs[this.name]);
+          console.log("validating");
           valForm.validateHidden(this.name, this.fullDate, nearestForm.id);
         }
       }, 50);

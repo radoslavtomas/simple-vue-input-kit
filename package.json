@@ -1,6 +1,6 @@
 {
   "name": "simple-vue-input-kit",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "private": false,
   "description": "Collection of custom Vue inputs",
   "author": "Radoslav Tomas",
@@ -32,7 +32,7 @@
     "core-js": "^2.6.11",
     "lodash-es": "^4.17.15",
     "style-loader": "^1.2.1",
-    "valform": "^1.2.2",
+    "valform": "^2.0.3",
     "vue": "^2.6.11"
   },
   "devDependencies": {
