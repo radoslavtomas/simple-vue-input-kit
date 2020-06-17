@@ -18,8 +18,7 @@
           :class="`help__btn__${name}`"
           @click.prevent="openHelp"
         >
-          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon
-          >Need help?
+          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
         </sup>
       </label>
 
@@ -45,9 +44,7 @@
             }"
             :key="option.code"
             @click="chooseOption(option)"
-          >
-            {{ option.description }}
-          </div>
+          >{{ option.description }}</div>
 
           <input
             type="hidden"
@@ -133,8 +130,10 @@ export default {
         description: option.description
       });
 
+      const nearestForm = this.getNearestForm(this.$refs[this.name]);
+
       if (!this.optional) {
-        valForm.validateHidden(this.name, option.code);
+        valForm.validateHidden(this.name, option.code, nearestForm.id);
       }
     },
     selectNextOption(event) {
@@ -214,6 +213,20 @@ export default {
         event.target.classList.contains("inner__radio")
       ) {
         event.preventDefault();
+      }
+    },
+    getNearestForm(element) {
+      let parent = element.parentNode;
+
+      if (parent.nodeName === "FORM") {
+        return parent;
+      } else if (parent.nodeName === "BODY") {
+        console.warn(
+          "valForm validation broken. No form parent element found on the page."
+        );
+        return false;
+      } else {
+        return this.getNearestForm(parent);
       }
     }
   },

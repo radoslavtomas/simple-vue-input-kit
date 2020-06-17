@@ -18,8 +18,7 @@
           :class="`help__btn__${name}`"
           @click.prevent="openHelp"
         >
-          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon
-          >Need help?
+          <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need help?
         </sup>
       </label>
 
@@ -170,9 +169,24 @@ export default {
         // check active element after a little pause
         // as straight after blur it will be document
         if (!this.checkActiveDate()) {
-          valForm.validateHidden(this.name, this.fullDate);
+          const nearestForm = this.getNearestForm(this.$refs[this.name]);
+          valForm.validateHidden(this.name, this.fullDate, nearestForm.id);
         }
       }, 50);
+    },
+    getNearestForm(element) {
+      let parent = element.parentNode;
+
+      if (parent.nodeName === "FORM") {
+        return parent;
+      } else if (parent.nodeName === "BODY") {
+        console.warn(
+          "valForm validation broken. No form parent element found on the page."
+        );
+        return false;
+      } else {
+        return this.getNearestForm(parent);
+      }
     },
     checkActiveElement(el) {
       if (el === document.activeElement) {

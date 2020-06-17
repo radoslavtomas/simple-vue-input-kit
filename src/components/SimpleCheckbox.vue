@@ -13,11 +13,7 @@
       <label for v-if="label !== 'hidden'">{{ label }}</label>
       <div class="simple__input__inner checkbox__wrap">
         <div v-for="item in checkboxes" :key="item.name">
-          <div
-            tabindex="0"
-            class="inner__left inner__checkbox"
-            :class="[classList]"
-          >
+          <div tabindex="0" class="inner__left inner__checkbox" :class="[classList]">
             <div
               class="simple__input__checkbox"
               :class="{
@@ -30,9 +26,11 @@
               <fa-icon icon="check" class="fa-lg" v-if="item.checked"></fa-icon>
             </div>
 
-            <label :for="name" v-if="item.label !== 'hidden'">{{
+            <label :for="name" v-if="item.label !== 'hidden'">
+              {{
               item.label
-            }}</label>
+              }}
+            </label>
           </div>
         </div>
       </div>
@@ -49,12 +47,7 @@
         :data-val-allow-empty="optional"
       />
     </div>
-    <div
-      v-if="hint"
-      class="simple__help__btn"
-      :class="`help__btn__${name}`"
-      @click="openHelp"
-    >
+    <div v-if="hint" class="simple__help__btn" :class="`help__btn__${name}`" @click="openHelp">
       <fa-icon class="simple__hint__icon" icon="question-circle"></fa-icon>Need
       help?
     </div>
@@ -71,40 +64,40 @@
 </template>
 
 <script>
-import baseMixin from './../mixins/baseMixin';
-import valForm from 'valform';
+import baseMixin from "./../mixins/baseMixin";
+import valForm from "valform";
 
 export default {
-  name: 'simple-checkbox',
+  name: "simple-checkbox",
   mixins: [baseMixin],
   props: {
     return: {
       type: String,
-      default: 'bool',
+      default: "bool",
       required: false,
       validator(val) {
-        return ['bool', 'zero-one', 'yes-no'].indexOf(val) !== -1;
-      },
+        return ["bool", "zero-one", "yes-no"].indexOf(val) !== -1;
+      }
     },
     boxes: {
-      type: Array,
-    },
+      type: Array
+    }
   },
   data() {
     return {
       checkboxes: [],
-      checked: false,
+      checked: false
     };
   },
   beforeMount() {
-    this.checkboxes = this.boxes.map((item) => {
+    this.checkboxes = this.boxes.map(item => {
       item.checked = false;
       return item;
     });
   },
   methods: {
     toggleBox(name) {
-      this.checkboxes = this.checkboxes.map((box) => {
+      this.checkboxes = this.checkboxes.map(box => {
         if (box.name === name) {
           box.checked = !box.checked;
         }
@@ -113,23 +106,38 @@ export default {
 
       const values = this.getAllValues();
 
-      this.$emit('input', values);
+      this.$emit("input", values);
 
-      this.$emit('select', {
-        event: 'select',
-        input: 'checkbox',
+      this.$emit("select", {
+        event: "select",
+        input: "checkbox",
         name: this.name,
-        values: values,
+        values: values
       });
 
       if (!this.optional) {
-        valForm.validateHidden(this.name, this.validationValue);
+        const nearestForm = this.getNearestForm(this.$refs[this.name]);
+        valForm.validateHidden(this.name, this.validationValue, nearestForm.id);
+      }
+    },
+    getNearestForm(element) {
+      let parent = element.parentNode;
+
+      if (parent.nodeName === "FORM") {
+        return parent;
+      } else if (parent.nodeName === "BODY") {
+        console.warn(
+          "valForm validation broken. No form parent element found on the page."
+        );
+        return false;
+      } else {
+        return this.getNearestForm(parent);
       }
     },
     getAllValues() {
       let data = {};
 
-      this.checkboxes.forEach((box) => {
+      this.checkboxes.forEach(box => {
         data[box.name] = this.returnValue(box.checked);
       });
 
@@ -137,13 +145,13 @@ export default {
     },
     returnValue(val) {
       switch (this.return) {
-        case 'bool':
+        case "bool":
           return val;
 
-        case 'yes-no':
-          return val ? 'Y' : 'N';
+        case "yes-no":
+          return val ? "Y" : "N";
 
-        case 'zero-one':
+        case "zero-one":
           return val ? 1 : 0;
 
         default:
@@ -155,8 +163,8 @@ export default {
         return;
       }
 
-      Object.keys(this.value).forEach((name) => {
-        this.checkboxes = this.checkboxes.map((box) => {
+      Object.keys(this.value).forEach(name => {
+        this.checkboxes = this.checkboxes.map(box => {
           if (box.name === name) {
             const boolValue = this.getBooleanValue(this.value[name]);
             box.checked = boolValue;
@@ -167,37 +175,37 @@ export default {
     },
     getBooleanValue(val) {
       switch (this.return) {
-        case 'bool':
+        case "bool":
           return val;
 
-        case 'yes-no':
-          return val === 'Y' ? true : false;
+        case "yes-no":
+          return val === "Y" ? true : false;
 
-        case 'zero-one':
+        case "zero-one":
           return val === 1 ? true : false;
 
         default:
           return false;
       }
-    },
+    }
   },
   computed: {
     validationValue() {
       let value = 0;
 
-      this.checkboxes.forEach((box) => {
+      this.checkboxes.forEach(box => {
         if (box.checked) {
           value++;
         }
       });
 
-      return value === 0 ? '' : value.toString();
-    },
+      return value === 0 ? "" : value.toString();
+    }
   },
   mounted() {
     this.setClassObserver();
     this.setAllValues();
-  },
+  }
 };
 </script>
 
