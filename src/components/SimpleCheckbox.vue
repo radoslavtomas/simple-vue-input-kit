@@ -103,7 +103,7 @@ export default {
     });
   },
   methods: {
-    toggleBox(name) {
+    async toggleBox(name) {
       this.checkboxes = this.checkboxes.map(box => {
         if (box.name === name) {
           box.checked = !box.checked;
@@ -124,7 +124,11 @@ export default {
 
       if (!this.optional) {
         const nearestForm = this.getNearestForm(this.$refs[this.name]);
-        valForm.validateHidden(this.name, this.validationValue, nearestForm.id);
+        await valForm.validateHidden(
+          this.name,
+          this.validationValue,
+          nearestForm.id
+        );
       }
     },
     getNearestForm(element) {

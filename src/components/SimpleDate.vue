@@ -171,9 +171,6 @@ export default {
         // as straight after blur it will be document
         if (!this.checkActiveDate()) {
           const nearestForm = this.getNearestForm(this.$refs[this.name]);
-          console.log("validating");
-          console.log(nearestForm);
-          console.log(nearestForm.id);
           await valForm.validateHidden(
             this.name,
             this.fullDate,

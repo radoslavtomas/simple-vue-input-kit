@@ -123,7 +123,7 @@ export default {
     };
   },
   methods: {
-    chooseOption(option) {
+    async chooseOption(option) {
       this.$emit("input", option.code);
 
       this.$emit("select", {
@@ -136,7 +136,7 @@ export default {
       const nearestForm = this.getNearestForm(this.$refs[this.name]);
 
       if (!this.optional) {
-        valForm.validateHidden(this.name, option.code, nearestForm.id);
+        await valForm.validateHidden(this.name, option.code, nearestForm.id);
       }
     },
     selectNextOption(event) {
