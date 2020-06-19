@@ -1,6 +1,6 @@
 {
   "name": "simple-vue-input-kit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": false,
   "description": "Collection of custom Vue inputs",
   "author": "Radoslav Tomas",
@@ -26,13 +26,13 @@
     "kit"
   ],
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "core-js": "^2.6.11",
     "lodash-es": "^4.17.15",
     "style-loader": "^1.2.1",
-    "valform": "^2.0.3",
+    "valform": "^2.0.4",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -52,7 +52,7 @@
     "vue-loader": "^15.9.2",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2"
   }
 }
