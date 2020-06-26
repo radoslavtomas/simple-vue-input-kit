@@ -55,6 +55,15 @@
         @blur="handleBlur"
       ></simple-date>
 
+      <simple-sort-code
+        name="sortcode"
+        v-model="sortCode"
+        label="Sort code"
+        hint="Must be in format XX-XX-XX"
+        validation="required|numeric|exact_length[6]"
+        @blur="handleBlur"
+      ></simple-sort-code>
+
       <simple-list-autocomplete
         v-model="cars"
         name="cars"
@@ -150,6 +159,7 @@ export default {
       surname: "",
       gender: "M",
       dob: "",
+      sortCode: "",
       cars: "",
       cars_ajax: "",
       card: "",
