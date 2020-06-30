@@ -23,7 +23,7 @@
         </sup>
       </label>
 
-      <div class="simple__input__inner">
+      <div class="simple__input__inner" :class="[sizeObject()]">
         <div class="inner__left">
           <div
             class="simple__input__before"
@@ -101,6 +101,13 @@ export default {
       // if provided it will be rendered on the input's left side
       type: String,
       default: ""
+    },
+    size: {
+      type: String,
+      default: "full",
+      validator(val) {
+        return ["full", "half", "third"].indexOf(val) !== -1;
+      }
     }
   },
   data() {
@@ -124,6 +131,13 @@ export default {
     setFontTransform(val) {
       let value = val.trim();
       return this.isUpperCase ? value.toUpperCase() : value;
+    },
+    sizeObject() {
+      return {
+        full: this.size === "full",
+        half: this.size === "half",
+        third: this.size === "third"
+      };
     }
   },
   mounted() {

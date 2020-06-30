@@ -46,6 +46,14 @@ html,
   width: 100%;
 }
 
+.simple__input__inner.half {
+  width: 50%;
+}
+
+.simple__input__inner.third {
+  width: 33%;
+}
+
 .simple__input__inner .inner__left {
   display: flex;
   /* width: calc(100% - 20px); */
@@ -466,6 +474,16 @@ html,
   font-size: 14px;
   line-height: 20px;
   padding-bottom: 8px;
+}
+
+@media (max-width: 640px) {
+  .simple__input__inner.half {
+    width: 100%;
+  }
+
+  .simple__input__inner.third {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1024px) {

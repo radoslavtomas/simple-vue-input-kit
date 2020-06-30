@@ -15,6 +15,7 @@
       <simple-input
         v-model="first_name"
         type="text"
+        size="third"
         topClassList="first_name"
         :classList="['special', 'different_class']"
         hint="<strong>Lorem ipsum</strong> <br />dolor sit amet consectetur, adipisicing elit. Rem deleniti velit enim porro sequi, fugiat unde obcaecati quos ullam blanditiis dolorum cum nihil facilis similique voluptatibus, accusantium quo laboriosam repellat."

@@ -17,6 +17,7 @@
             tabindex="0"
             class="inner__left inner__checkbox"
             :class="[classList]"
+            @click="toggleBox(item.name)"
           >
             <div
               class="simple__input__checkbox"
@@ -25,14 +26,13 @@
                 valid: inputValid,
                 error: inputError
               }"
-              @click="toggleBox(item.name)"
             >
               <fa-icon icon="check" class="fa-lg" v-if="item.checked"></fa-icon>
             </div>
 
-            <label :for="name" v-if="item.label !== 'hidden'">{{
-              item.label
-            }}</label>
+            <label :for="name" v-if="item.label !== 'hidden'">
+              {{ item.label }}
+            </label>
           </div>
         </div>
       </div>
