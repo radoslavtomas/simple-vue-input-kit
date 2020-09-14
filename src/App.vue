@@ -56,6 +56,14 @@
         @blur="handleBlur"
       ></simple-date>
 
+      <simple-date-alt
+        name="licence"
+        v-model="licence"
+        label="Driver licence date"
+        validation="required"
+        @blur="handleBlur"
+      ></simple-date-alt>
+
       <simple-sort-code
         name="sortcode"
         v-model="sortCode"
@@ -160,6 +168,7 @@ export default {
       surname: "",
       gender: "M",
       dob: "",
+      licence: "201306",
       sortCode: "",
       cars: "",
       cars_ajax: "",

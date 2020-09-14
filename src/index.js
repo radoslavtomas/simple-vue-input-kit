@@ -52,6 +52,7 @@ valForm.addValMessage(
 
 import SimpleInput from "./components/SimpleInput.vue";
 import SimpleDate from "./components/SimpleDate.vue";
+import SimpleDateAlt from "./components/SimpleDateAlt.vue";
 import SimpleSortCode from "./components/SimpleSortCode.vue";
 import SimpleSelect from "./components/SimpleSelect.vue";
 import SimpleRadio from "./components/SimpleRadio.vue";
@@ -63,6 +64,7 @@ export default {
   install(Vue) {
     Vue.component("simple-input", SimpleInput);
     Vue.component("simple-date", SimpleDate);
+    Vue.component("simple-date-alt", SimpleDateAlt);
     Vue.component("simple-select", SimpleSelect);
     Vue.component("simple-radio", SimpleRadio);
     Vue.component("simple-checkbox", SimpleCheckbox);
