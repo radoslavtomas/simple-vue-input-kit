@@ -47,6 +47,7 @@
             :data-val-allow-empty="optional"
             @input="handleInputEvent"
             @change="handleChangeEvent"
+            @keydown.enter.prevent="handleEnterEvent"
           />
         </div>
 
@@ -124,6 +125,14 @@ export default {
       let val = this.setFontTransform(e.target.value);
       this.$emit("change", {
         event: "change",
+        name: this.name,
+        value: val
+      });
+    },
+    handleEnterEvent(e) {
+      let val = this.setFontTransform(e.target.value);
+      this.$emit("enter", {
+        event: "enter",
         name: this.name,
         value: val
       });
