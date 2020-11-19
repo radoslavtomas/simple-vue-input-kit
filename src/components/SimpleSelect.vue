@@ -47,7 +47,7 @@
           >
             <option
               v-for="option in options"
-              :key="option.code"
+              :key="name + option.code"
               :value="option.code"
               >{{ option.description }}</option
             >
