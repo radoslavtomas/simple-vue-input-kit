@@ -221,7 +221,7 @@ export default {
         this.searching = true;
         const data = await this.getData(`${this.codeUrl}${tempVal}`);
         const option = {
-          code: this.value,
+          code: tempVal,
           description: data.description
         };
 
