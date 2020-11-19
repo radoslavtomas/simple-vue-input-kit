@@ -166,7 +166,7 @@ export default {
       title: "",
       first_name: "",
       surname: "",
-      gender: "M",
+      gender: "",
       dob: "",
       licence: "201306",
       sortCode: "",

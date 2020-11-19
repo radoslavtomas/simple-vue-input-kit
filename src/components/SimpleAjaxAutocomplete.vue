@@ -206,14 +206,20 @@ export default {
         }
       }
     }, 250),
-    async fetchValueByCode() {
+    async fetchValueByCode(initialLoad = false) {
       if (!this.value) {
         return;
       }
 
+      // hide code value when initially loading
+      const tempVal = this.value;
+      if (initialLoad) {
+        this.$emit("input", "");
+      }
+
       try {
         this.searching = true;
-        const data = await this.getData(`${this.codeUrl}${this.value}`);
+        const data = await this.getData(`${this.codeUrl}${tempVal}`);
         const option = {
           code: this.value,
           description: data.description
@@ -257,7 +263,7 @@ export default {
     if (this.development) {
       this.fetchValueByCodeDev();
     } else {
-      await this.fetchValueByCode();
+      await this.fetchValueByCode(true);
     }
   }
 };
