@@ -166,7 +166,6 @@ export default {
       const list = await this.fetchList(this.list);
       return new Promise(resolve => {
         this.options = this.getStandardizedList(list.list);
-        console.log(this.options);
         resolve();
       });
     },
