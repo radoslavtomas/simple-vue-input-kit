@@ -124,6 +124,14 @@ export default {
       // if provided it will be rendered on the input's left side
       type: String,
       default: ""
+    },
+    desc_alt: {
+      type: String,
+      default: "description"
+    },
+    code_alt: {
+      type: String,
+      default: "code"
     }
   },
   data() {
@@ -157,8 +165,19 @@ export default {
     async setOptions() {
       const list = await this.fetchList(this.list);
       return new Promise(resolve => {
-        this.options = list.list;
+        this.options = this.getStandardizedList(list.list);
+        console.log(this.options);
         resolve();
+      });
+    },
+    getStandardizedList(list) {
+      // in case we don't have code & description nodes
+      return list.map(option => {
+        option.description = option[this.desc_alt];
+        option.code = option[this.code_alt]
+          ? option[this.code_alt]
+          : option[this.desc_alt];
+        return option;
       });
     },
     loadDefaults() {
