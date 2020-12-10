@@ -161,13 +161,13 @@ export default {
         this.month = "0" + this.month;
       }
 
-      this.$emit("input", this.fullDate);
+      // this.$emit("input", this.fullDate);
 
-      this.$emit("blur", {
-        event: "blur",
-        name: this.name,
-        value: this.fullDate
-      });
+      // this.$emit("blur", {
+      //   event: "blur",
+      //   name: this.name,
+      //   value: this.fullDate
+      // });
 
       setTimeout(async () => {
         // check active element after a little pause
@@ -179,6 +179,14 @@ export default {
             this.fullDate,
             nearestForm.id
           );
+
+          this.$emit("input", this.fullDate);
+
+          this.$emit("blur", {
+            event: "blur",
+            name: this.name,
+            value: this.fullDate
+          });
         }
       }, 50);
     },
