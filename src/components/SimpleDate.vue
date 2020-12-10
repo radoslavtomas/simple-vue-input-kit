@@ -34,6 +34,7 @@
               class="simple__input__date__day"
               v-model="day"
               ref="day"
+              placeholder="DD"
               @blur="handleDateBlur"
             />
             <div class="simple__input__date__divider">/</div>
@@ -42,6 +43,7 @@
               class="simple__input__date__month"
               v-model="month"
               ref="month"
+              placeholder="MM"
               @blur="handleDateBlur"
             />
             <div class="simple__input__date__divider">/</div>
@@ -50,6 +52,7 @@
               class="simple__input__date__year"
               v-model="year"
               ref="year"
+              placeholder="YYYY"
               @blur="handleDateBlur"
             />
           </div>
@@ -160,11 +163,13 @@ export default {
 
       this.$emit("input", this.fullDate);
 
-      this.$emit("blur", {
-        event: "blur",
-        name: this.name,
-        value: this.fullDate
-      });
+      if (this.fullDate.length === 10) {
+        this.$emit("blur", {
+          event: "blur",
+          name: this.name,
+          value: this.fullDate
+        });
+      }
 
       setTimeout(async () => {
         // check active element after a little pause
