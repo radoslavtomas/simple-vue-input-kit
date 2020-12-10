@@ -163,13 +163,11 @@ export default {
 
       this.$emit("input", this.fullDate);
 
-      if (this.fullDate.length === 10) {
-        this.$emit("blur", {
-          event: "blur",
-          name: this.name,
-          value: this.fullDate
-        });
-      }
+      this.$emit("blur", {
+        event: "blur",
+        name: this.name,
+        value: this.fullDate
+      });
 
       setTimeout(async () => {
         // check active element after a little pause
