@@ -69,19 +69,6 @@
             :data-val-allow-empty="optional"
           />
         </div>
-
-        <!-- <div class="simple__input__feedback">
-          <fa-icon
-            v-if="inputValid"
-            class="simple__input__feedback__valid"
-            icon="check"
-          ></fa-icon>
-          <fa-icon
-            v-if="inputError"
-            class="simple__input__feedback__error"
-            icon="times"
-          ></fa-icon>
-        </div>-->
       </div>
     </div>
     <div
@@ -143,6 +130,11 @@ export default {
       if (this.year.length === 4) {
         this.$refs.year.blur();
       }
+    },
+    value: async function() {
+      this.mounting = true;
+      await this.setValue();
+      this.mounting = false;
     }
   },
   methods: {
@@ -222,7 +214,7 @@ export default {
 
       return false;
     },
-    async setDefault() {
+    async setValue() {
       return new Promise(resolve => {
         if (this.value) {
           const regex = /\d{2}\/\d{2}\/\d{4}/;
@@ -247,7 +239,7 @@ export default {
   async mounted() {
     this.mounting = true;
 
-    await this.setDefault();
+    await this.setValue();
     this.setClassObserver();
 
     this.mounting = false;

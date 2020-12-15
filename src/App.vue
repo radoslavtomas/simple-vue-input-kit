@@ -228,6 +228,11 @@ export default {
       validationValidClass: "valid",
       appendAfter: "simple__input__inner"
     });
+
+    // setTimeout(() => {
+    //   console.log("setting");
+    //   this.dob = "05/05/1970";
+    // }, 5000);
   }
 };
 </script>
