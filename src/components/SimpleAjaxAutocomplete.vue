@@ -146,13 +146,6 @@ export default {
       searching: false
     };
   },
-  // watch: {
-  //   value: async function() {
-  //     this.development
-  //       ? await this.fetchValueByCodeDev()
-  //       : await this.fetchValueByCode(true);
-  //   }
-  // },
   methods: {
     async handleInputEvent(e) {
       // reset code value and validation class if user interact
@@ -211,8 +204,12 @@ export default {
       }
     }, 250),
     async fetchValueByCode(initialLoad = false) {
-      console.log(this.value);
       if (!this.value) {
+        return;
+      }
+
+      if (typeof this.value === "string" && this.value.length > 4) {
+        this.$emit("input", "");
         return;
       }
 
@@ -229,7 +226,7 @@ export default {
           code: tempVal,
           description: data.description
         };
-        console.log(option);
+        // console.log(option);
 
         this.setResult(option, false);
         this.searching = false;
