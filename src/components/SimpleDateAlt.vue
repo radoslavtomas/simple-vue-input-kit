@@ -196,6 +196,14 @@ export default {
     }
   },
   async mounted() {
+    window.addEventListener("simple-force-refresh", async () => {
+      setTimeout(async () => {
+        this.mounting = true;
+        await this.setDefault();
+        this.mounting = false;
+      }, 200);
+    });
+
     this.mounting = true;
 
     await this.setDefault();

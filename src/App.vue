@@ -85,6 +85,16 @@
         @change="handleChange"
       ></simple-list-autocomplete>
 
+      <!-- <simple-ajax-autocomplete
+        v-model="occupation"
+        name="occupation"
+        label="Occupation"
+        main-value="code"
+        validation="required|has_valid_value"
+        code-url="https://api.quotelinedirect.co.uk/occupation/employers/get/bycode?code="
+        search-url="https://api.quotelinedirect.co.uk/occupation/employers/get/bysearch?keyword="
+      ></simple-ajax-autocomplete> -->
+
       <simple-ajax-autocomplete
         v-model="cars_ajax"
         name="cars_ajax"
@@ -92,6 +102,7 @@
         validation="required|has_valid_value"
         :development="true"
         display="cars ajax"
+        main-value="code"
         code-url="https://my-json-server.typicode.com/radoslavtomas/simple-vue-input-kit/lists/Makes"
         search-url="https://my-json-server.typicode.com/radoslavtomas/simple-vue-input-kit/lists/Makes"
         @change="handleChange"
@@ -168,10 +179,11 @@ export default {
       surname: "",
       gender: "",
       dob: "",
-      licence: "201306",
+      licence: "",
       sortCode: "",
       cars: "",
       cars_ajax: "",
+      occupation: "",
       card: "",
       rate: "",
       mobile: "",
@@ -230,9 +242,23 @@ export default {
     });
 
     // setTimeout(() => {
+    //   // testing
     //   console.log("setting");
+    //   this.title = "Mr";
+    //   this.rate = "Y";
     //   this.dob = "05/05/1970";
-    // }, 5000);
+    //   this.licence = "201306";
+    //   this.cars = "Toyota";
+    //   this.occupation = "258";
+    //   this.hobbiesValues = {
+    //     hobby1: "Y",
+    //     hobby2: "N",
+    //     hobby3: "Y",
+    //     hobby4: "Y"
+    //   };
+    //   let event = new CustomEvent("simple-force-refresh");
+    //   window.dispatchEvent(event);
+    // }, 3000);
   }
 };
 </script>

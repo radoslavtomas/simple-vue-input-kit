@@ -130,11 +130,6 @@ export default {
       if (this.year.length === 4) {
         this.$refs.year.blur();
       }
-    },
-    value: async function() {
-      this.mounting = true;
-      await this.setValue();
-      this.mounting = false;
     }
   },
   methods: {
@@ -237,6 +232,14 @@ export default {
     }
   },
   async mounted() {
+    window.addEventListener("simple-force-refresh", async () => {
+      setTimeout(async () => {
+        this.mounting = true;
+        await this.setValue();
+        this.mounting = false;
+      }, 200);
+    });
+
     this.mounting = true;
 
     await this.setValue();

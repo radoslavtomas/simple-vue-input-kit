@@ -214,6 +214,12 @@ export default {
     }
   },
   mounted() {
+    window.addEventListener("simple-force-refresh", async () => {
+      setTimeout(async () => {
+        this.setAllValues();
+      }, 200);
+    });
+
     this.setClassObserver();
     this.setAllValues();
   }

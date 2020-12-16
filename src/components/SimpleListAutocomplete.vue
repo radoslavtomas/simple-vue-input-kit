@@ -190,6 +190,12 @@ export default {
     }
   },
   async mounted() {
+    window.addEventListener("simple-force-refresh", () => {
+      setTimeout(() => {
+        this.loadDefaults();
+      }, 200);
+    });
+
     await this.setOptions();
     this.setClassObserver();
     this.loadDefaults();

@@ -146,6 +146,13 @@ export default {
       searching: false
     };
   },
+  // watch: {
+  //   value: async function() {
+  //     this.development
+  //       ? await this.fetchValueByCodeDev()
+  //       : await this.fetchValueByCode(true);
+  //   }
+  // },
   methods: {
     async handleInputEvent(e) {
       // reset code value and validation class if user interact
@@ -158,7 +165,6 @@ export default {
       if (value.length > 0) {
         // in this way we can debounce this method
         if (this.development) {
-          console.log("dev");
           this.searchForListDev(value);
         } else {
           this.searchForList(value);
@@ -188,8 +194,6 @@ export default {
 
       let list = await this.getData(this.searchUrl);
 
-      console.log(list);
-
       this.optionsToShow = list.list
         .filter(option => {
           let opt = option.description.toLowerCase();
@@ -207,6 +211,7 @@ export default {
       }
     }, 250),
     async fetchValueByCode(initialLoad = false) {
+      console.log(this.value);
       if (!this.value) {
         return;
       }
@@ -224,6 +229,7 @@ export default {
           code: tempVal,
           description: data.description
         };
+        console.log(option);
 
         this.setResult(option, false);
         this.searching = false;
@@ -259,6 +265,11 @@ export default {
     }
   },
   async mounted() {
+    window.addEventListener("simple-force-refresh", async () => {
+      setTimeout(async () => {
+        await this.fetchValueByCode(true);
+      }, 300);
+    });
     this.setClassObserver();
     if (this.development) {
       this.fetchValueByCodeDev();
