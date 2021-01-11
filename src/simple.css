@@ -77,6 +77,11 @@ html,
   padding-right: 7px;
   outline: none;
   flex-grow: 1;
+  background-color: white;
+}
+
+.simple__input select option {
+  background-color: inherit;
 }
 
 .simple__input input:focus,
@@ -143,6 +148,10 @@ html,
   cursor: pointer;
 }
 
+.simple__input svg {
+  background-color: inherit;
+}
+
 .simple__input .simple__input__checkbox.error {
   border: 1px solid #fc8181;
 }
@@ -172,6 +181,11 @@ html,
   flex: 1 1 0;
   word-break: break-all;
   cursor: pointer;
+  background-color: white;
+}
+
+.simple__input .simple__input__radio:hover {
+  background-color: #f7fafc;
 }
 
 .simple__input .simple__input__radio:first-of-type {
@@ -294,6 +308,7 @@ html,
   border-top: 1px solid #cbd5e0;
   border-bottom: 1px solid #cbd5e0;
   color: #969696;
+  background-color: white;
 }
 
 .simple__input .simple__input__date input:focus {
