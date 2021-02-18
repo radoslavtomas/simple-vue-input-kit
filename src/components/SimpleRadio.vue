@@ -43,7 +43,7 @@
               error: inputError,
               column: column
             }"
-            :key="option.code"
+            :key="option.description + option.code"
             @click="chooseOption(option)"
           >
             {{ option.description }}
