@@ -431,13 +431,17 @@ html,
 
 /* HELP COMPONENT */
 
+* {
+  --vuekit-hint: #9ca3af;
+}
+
 .simple__help {
   color: #4a5568;
   background-color: #ffffff;
-  border: 1px solid #9ca3af;
+  border: 1px solid var(--vuekit-hint);
   padding: 8px;
   position: absolute;
-  left: 104%;
+  left: 106%;
   top: 35%;
   width: 400px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -455,7 +459,20 @@ html,
   height: 0;
   border-style: solid;
   border-width: 12px 12px 12px 0;
-  border-color: transparent #9ca3af transparent transparent;
+  border-color: transparent var(--vuekit-hint) transparent transparent;
+}
+
+.simple__help::after {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: calc(50% - 6px);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 12px 12px;
+  border-color: transparent transparent var(--vuekit-hint) transparent;
+  display: none;
 }
 
 .simple__help .simple__help__close {
@@ -504,12 +521,16 @@ html,
   .simple__help {
     width: 100%;
     left: 0;
-    top: 110%;
+    top: 103%;
     border-width: 1px;
   }
 
   .simple__help::before {
     display: none;
+  }
+
+  .simple__help::after {
+    display: block;
   }
 
   .simple__form__field .simple__help__btn {
