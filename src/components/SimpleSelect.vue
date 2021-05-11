@@ -42,7 +42,6 @@
             :data-val-display="displayName"
             :data-val-with="valWith"
             :data-val-allow-empty="optional"
-            @input="handleInputEvent"
             @change="handleChangeEvent"
           >
             <option
@@ -110,14 +109,14 @@ export default {
     };
   },
   methods: {
-    handleInputEvent(e) {
-      this.$emit("input", e.target.value);
-    },
     handleChangeEvent(e) {
+      this.$emit("input", e.target.value);
+
       let val = e.target.value;
       let desc = this.options.find(obj => {
         return obj.code === val;
       }).description;
+
       this.$emit("select", {
         event: "select",
         name: this.name,
