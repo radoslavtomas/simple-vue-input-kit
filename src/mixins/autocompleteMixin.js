@@ -50,7 +50,7 @@ export default {
       // postpone blur so we can catch click event on li elements
       setTimeout(() => {
         this.elementIsActive = false;
-      }, 150);
+      }, 400);
     },
     handleChangeEvent(e) {
       const value = e.target.value;
